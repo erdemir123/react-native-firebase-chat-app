@@ -8,10 +8,11 @@ export default function Seperator() {
 const styles = StyleSheet.create({
   seperator: {
     borderBottomWidth: 2,
-    borderBottomColor: "#999999",
+    borderBottomColor: "#f0f0f0",
     height: 1,
-    marginLeft:72,
+    marginLeft:4,
     marginRight:4,
-    marginTop:-10
+    marginTop:-6,
+    
   },
 });

@@ -16,30 +16,15 @@ const Tab = createBottomTabNavigator();
 
 function BottomNavigator() {
   return (
-    <Tab.Navigator initialRouteName="Main" screenOptions={{tabBarActiveTintColor:"black"}}>
+    <Tab.Navigator
+      initialRouteName="Main"
+      screenOptions={{ tabBarActiveTintColor: "black" }}
+    >
       <Tab.Screen
         name="Main"
         component={HomeNavigator}
         options={{
-          headerTitle: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 5,
-                justifyContent: "center",
-              }}
-            >
-              <Image
-                source={require("../assets/chat.png")}
-                width={24}
-                height={24}
-                resizeMode="cover"
-                
-              />
-              <Text style={{fontSize:20,color:"#5887C2"}}>Chats</Text>
-            </View>
-          ),
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               {focused ? (
@@ -55,6 +40,8 @@ function BottomNavigator() {
         name="Settings"
         component={SettingScreen}
         options={{
+          headerTitle: "SETTINGS",
+         headerTitleStyle:{color:"#5887C2"},
           tabBarIcon: ({ focused }) => (
             <View>
               {focused ? (

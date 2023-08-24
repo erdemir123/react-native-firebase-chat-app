@@ -7,13 +7,14 @@ import BottomNavigator from "../navigations/BottomNavigator";
 
 const Stack = createStackNavigator();
 
-function StackNavigator({ route }) {
+function StackNavigator() {
   return (
    
      <Stack.Navigator
      initialRouteName="Bottom"
      screenOptions={{
        headerShown: false,
+       presentation:"modal"
      }}
    >
      <Stack.Screen name="Login" component={LoginScreen} />

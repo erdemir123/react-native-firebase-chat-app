@@ -5,7 +5,7 @@ import Seperator from "./Seperator";
 
 export default function ContactRow({ name, subTitle, onPress }) {
   return (
-    <View>
+    <View style={{backgroundColor:"white",marginVertical:0,paddingVertical:2}}>
       <TouchableOpacity onPress={onPress}> 
         <View style={styles.row}>
           <View style={styles.avatar}>
@@ -19,12 +19,7 @@ export default function ContactRow({ name, subTitle, onPress }) {
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.name}>{subTitle}</Text>
           </View>
-          <FontAwesome5
-            name="greater-than"
-            size={12}
-            color="black"
-            style={styles.icon}
-          />
+          
         </View>
         <Seperator />
       </TouchableOpacity>
@@ -45,7 +40,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 50,
     width: 50,
-    borderRadius: "50%",
+    borderRadius: 50,
     backgroundColor: "#5887C2",
     marginLeft: 16,
   },
