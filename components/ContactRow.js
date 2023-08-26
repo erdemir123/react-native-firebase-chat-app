@@ -10,9 +10,9 @@ export default function ContactRow({ name, subTitle, onPress }) {
         <View style={styles.row}>
           <View style={styles.avatar}>
             <Text style={{ color: "white", fontSize: 24 }}>
-              {name
-                .split(" ")
-                .reduce((prev, current) => `${prev}${current[0]}`, "")}
+              {/* {name
+                .split("")
+                .reduce((prev, current) => `${prev}${current[0]}`, "")} */}
             </Text>
           </View>
           <View style={styles.user}>

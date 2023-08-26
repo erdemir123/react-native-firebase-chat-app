@@ -3,9 +3,15 @@ import React from "react";
 import ContactRow from "../components/ContactRow";
 import Cell from "../components/Cell";
 
+import { useNavigation } from "@react-navigation/native";
+import { signOut } from "firebase/auth";
+import { auth } from "../config/firebase";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 export default function SettingScreen() {
+  const { navigate } = useNavigation();
   return (
-    <View style={{flex:1}}>
+    <View style={{ flex: 1 }}>
       <ContactRow
         name="Sadık ERDERMİR"
         subTitle="erdermirsadik123@gmail.com"
@@ -28,9 +34,31 @@ export default function SettingScreen() {
         title="Tell a Friend"
         icon="call-outline"
         tintColor="pink"
-        onPress={() => alert("arama yapılıyor...")}
+        onPress={() => {
+          AsyncStorage.removeItem("userObject");
+          signOut(auth);
+          navigate("Login");
+        }}
       />
     </View>
   );
 }
 
+
+
+// function convertUnixTimestampToNormalDateTime(unixTimestamp) {
+//   const normalDate = new Date(unixTimestamp);
+//   const formattedDate = normalDate.toLocaleDateString("tr-TR", {
+//     day: "2-digit",
+//     month: "2-digit",
+//     year: "numeric",
+//     hour: "2-digit",
+//     minute: "2-digit"
+//   });
+//   return formattedDate;
+// }
+
+// const unixTimestamp = 1692998240493; // Milisaniye cinsinden Unix zaman damgası
+// const normalDateTime = convertUnixTimestampToNormalDateTime(unixTimestamp);
+
+// console.log("Normal Date Time:", normalDateTime);

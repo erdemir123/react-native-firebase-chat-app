@@ -1,12 +1,31 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
 
-export default function ChatScreen() {
+import React, { useState, useCallback, useEffect } from 'react'
+import { GiftedChat } from 'react-native-gifted-chat'
+
+function ChatScreen({route}) {
+  const [messages, setMessages] = useState([])
+
+  useEffect(() => {
+    console.log(route)
+    
+  }, [])
+
+  const onSend = useCallback((messages = []) => {
+    setMessages(previousMessages =>
+      GiftedChat.append(previousMessages, messages),
+    )
+  }, [])
+
   return (
-    <View>
-      <Text>ChatScreen</Text>
-    </View>
+    <GiftedChat
+      messages={messages}
+      onSend={messages => onSend(messages)}
+      user={{
+        _id: 1,
+      }}
+    />
   )
 }
 
-const styles = StyleSheet.create({})
+
+export default ChatScreen

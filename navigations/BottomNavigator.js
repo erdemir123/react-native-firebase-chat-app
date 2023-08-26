@@ -10,21 +10,19 @@ import {
   Foundation,
   Ionicons,
 } from "@expo/vector-icons";
-import HomeNavigator from "./HomeNavigator";
+
 
 const Tab = createBottomTabNavigator();
 
 function BottomNavigator() {
   return (
     <Tab.Navigator
-      initialRouteName="Main"
       screenOptions={{ tabBarActiveTintColor: "black" }}
     >
       <Tab.Screen
-        name="Main"
-        component={HomeNavigator}
+        name="Home"
+        component={HomeScreen}
         options={{
-          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               {focused ? (
